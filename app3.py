@@ -57,37 +57,3 @@ def aplicar_nome(nome):
         writer.write(f)
 
     os.remove(overlay_pdf)
-
-
-#processa os nomes do arquivo
-with open(nomes, "r", encoding="utf-8") as f:
-    nomes = [linha.strip() for linha in f if linha.strip()]
-
-for nome in nomes:
-    aplicar_nome(nome)
-
-print("PDFs gerados")
-
-#junta os PDFs em um só
-
-Pasta = "certificadosGerados16hrs" 
-SAIDA = "certificados_concluidos.pdf"
-
-merger = PdfMerger()
-
-arquivos = sorted([
-    f for f in os.listdir(Pasta)
-    if f.lower().endswith(".pdf")
-])
-
-print(f"Encontrados {len(arquivos)} PDFs. Juntando...")
-
-for pdf in arquivos:
-    caminho = os.path.join(Pasta, pdf)
-    merger.append(caminho)
-
-# Salva o PDF final
-with open(SAIDA, "wb") as f:
-    merger.write(f)
-
-print(f"✔ PDF final gerado: {SAIDA}")

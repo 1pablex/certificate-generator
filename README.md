@@ -28,5 +28,3 @@ Ideal para eventos, cursos, workshops ou qualquer cenário onde muitos certifica
   - `docBranco.pdf`
   - Scripts Python
 
--
-

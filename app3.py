@@ -57,3 +57,12 @@ def aplicar_nome(nome):
         writer.write(f)
 
     os.remove(overlay_pdf)
+
+#processa os nomes do arquivo
+with open(nomes, "r", encoding="utf-8") as f:
+    nomes = [linha.strip() for linha in f if linha.strip()]
+
+for nome in nomes:
+    aplicar_nome(nome)
+
+print("PDFs gerados")
